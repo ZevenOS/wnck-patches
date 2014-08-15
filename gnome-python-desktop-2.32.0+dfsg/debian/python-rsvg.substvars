@@ -1,0 +1,5 @@
+python:Versions=2.7
+python:Provides=python2.7-rsvg
+python:Depends=python2.7, python (>= 2.7), python (<< 2.8)
+shlibs:Depends=libc6 (>= 2.1.3), libglib2.0-0 (>= 2.12.0), librsvg2-2 (>= 2.14.4)
+misc:Depends=

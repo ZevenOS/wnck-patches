@@ -1,0 +1,10 @@
+dbc8693ffe18f60d8855d84ee954fde3  usr/lib/pkgconfig/gnome-python-desktop-2.0.pc
+e0f3095ea9c8f10d02b40e2b2e10d2bc  usr/share/doc/python-gnome2-desktop-dev/AUTHORS
+9735ae411943000b96bdeaad965691d0  usr/share/doc/python-gnome2-desktop-dev/NEWS.gz
+444e6d5f7245422f494a08bb59946c51  usr/share/doc/python-gnome2-desktop-dev/README
+a96fc300299758dda8a8f9ef5d79d7fa  usr/share/doc/python-gnome2-desktop-dev/changelog.Debian.gz
+e08e92dde1ee56086c33ef1747701b83  usr/share/doc/python-gnome2-desktop-dev/changelog.gz
+5577fe9b7b6c069155f3a1e553f3e25d  usr/share/doc/python-gnome2-desktop-dev/copyright
+215f8bc2dc4420287c293926bc09216b  usr/share/pygtk/2.0/defs/_gnomedesktop.defs
+93f1c625ede23d900e12ae6ac4016eea  usr/share/pygtk/2.0/defs/gnomekeyring.defs
+c51e04c0aa8073fa3ae6bf3bcdb881be  usr/share/pygtk/2.0/defs/wnck.defs

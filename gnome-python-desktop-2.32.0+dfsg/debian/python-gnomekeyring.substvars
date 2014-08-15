@@ -1,0 +1,5 @@
+python:Versions=2.7
+python:Provides=python2.7-gnomekeyring
+python:Depends=python2.7, python (>= 2.7), python (<< 2.8)
+shlibs:Depends=libc6 (>= 2.4), libglib2.0-0 (>= 2.12.0), libgnome-keyring0 (>= 3.2.2-2~)
+misc:Depends=

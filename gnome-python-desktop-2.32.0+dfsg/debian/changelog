@@ -1,0 +1,460 @@
+gnome-python-desktop (2.32.0+dfsg-zevenos2) unstable; urgency=low
+
+  * Added set_orientation for WnckTasklist
+
+ -- Leszek Lesner <leszek@zevenos.com>  Fri, 16 Nov 2012 09:12:37 +0000
+
+gnome-python-desktop (2.32.0+dfsg-2ubuntu1) quantal; urgency=low
+
+  * Drop obsolete python-evolution, not working with latest
+    evolution-data-server. No upstream commit for 2 years and all reverse
+    dependencies have been taken of.
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 17 Sep 2012 10:01:38 +0200
+
+gnome-python-desktop (2.32.0+dfsg-2) unstable; urgency=low
+
+  * Drop obsolete python-metacity, python-gtop and python-totem-plparser
+    packages. They have no reverse dependencies and are superseded by gi based
+    bindings. Closes: #676019
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 05 Jun 2012 01:21:20 +0200
+
+gnome-python-desktop (2.32.0+dfsg-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * Update repository URL.
+
+  [ Michael Biebl ]
+  * Repack upstream tarball and drop the waf build system. Closes: #654471
+  * Update watch file to mangle the version for the +dfsg suffix.
+  * Don't use brace expansion in .install files and strip debian/tmp/ prefix.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 06 Feb 2012 15:16:19 +0100
+
+gnome-python-desktop (2.32.0-4) unstable; urgency=low
+
+  * Drop python-gnomeapplet. It has been replaced by gir1.2-panelapplet-4.0
+    and PyGObject. Closes: #638135
+  * Add Build-Depends on gnome-common, required for autoreconf.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 18 Oct 2011 01:34:12 +0200
+
+gnome-python-desktop (2.32.0-3) unstable; urgency=low
+
+  * Drop python-bugbuddy package.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 17 Oct 2011 17:15:36 +0200
+
+gnome-python-desktop (2.32.0-2) unstable; urgency=low
+
+  * Drop python-brasero, python-evince and python-mediaprofiles since 
+    they are going away with GNOME 3.
+  * By obsolescence, closes: #559400, #640754.
+
+ -- Josselin Mouette <joss@debian.org>  Sun, 02 Oct 2011 14:43:15 +0200
+
+gnome-python-desktop (2.32.0-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * Drop incorrect ${python:Provides}.
+
+  [ Michael Biebl ]
+  * New upstream release.
+  * debian/control.in:
+    - Bump Build-Depends on libevince-dev to (>= 2.32).
+    - Update Vcs-* fields.
+  * debian/watch:
+    - Switch to .bz2 tarballs.
+
+  [ Luk Claes ]
+  * Don't ship .la files. (Closes: #632563)
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 04 Jul 2011 15:28:53 +0200
+
+gnome-python-desktop (2.30.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control.in:
+    - Bump debhelper and cdbs build-dependencies
+    - Bump python-all-dev build-dependency
+    - Add dh-autoreconf as build-dependency and drop autotools
+    - Bump Standards-Version to 3.9.2 (no further changes)
+    - Drop versionized version of dpkg-dev
+    - Add Vcs-* fields
+    - Add Provides: ${python:Provides} to binary packages
+    - Fix Description to please lintian
+  * debian/rules:
+    - Add include autoreconf.mk (Closes: #558557)
+    - Use dh_python2 instead of pysupport
+  * Drop debian/patches/90_autotools.patch: Use dh-autoreconf instead
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 24 Apr 2011 11:50:12 +0200
+
+gnome-python-desktop (2.30.0-4) unstable; urgency=low
+
+  * python-gnomeapplet: depend on python-gnome2. Closes: #604798.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 01 Dec 2010 18:34:27 +0100
+
+gnome-python-desktop (2.30.0-3) unstable; urgency=low
+
+  * debian/patches/01_wnck_enums.patch:
+    - Patch from upstream bugzilla, fix flags in the wnck module that were
+      declared as enums. Closes: #597414.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 27 Sep 2010 19:42:52 +0200
+
+gnome-python-desktop (2.30.0-2) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control.in:
+    - Build depend on libgnome-media-dev on Hurd now that it's built there.
+      Thus build the python-mediaprofiles package.
+    - Build depend on bug-buddy on Hurd too since it's built there now.
+
+  [ Josselin Mouette ]
+  * Use Replaces instead of Conflicts to ease APT finding the correct 
+    upgrade path.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 18 Sep 2010 13:56:28 +0200
+
+gnome-python-desktop (2.30.0-1) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control.in,
+    debian/rules:
+    - Switch to CDBS and python-autotools.mk.
+  * debian/control.in,
+    debian/rules,
+    debian/source/format:
+    - Switch to source format 3.0 (quilt).
+  * debian/control.in,
+    debian/python-gnomeprint.install,
+    debian/python-gnomeprint.examples:
+    - Remove python-gnomeprint. It's deprecated and no longer used
+      by anything in the archive. Closes: #542580.
+
+  [ Josselin Mouette ]
+  * New upstream release.
+  * Bump build-dependencies accordingly.
+  * 01_bugbuddy_230.patch: dropped, merged upstream.
+  * 90_autotools.patch: updated for the new version.
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 03 May 2010 18:16:35 +0200
+
+gnome-python-desktop (2.28.0-7) unstable; urgency=low
+
+  * 01_bugbuddy_230.patch: stolen from 2.30, that we can’t upload yet. 
+    Fixes build with bug-buddy 2.30. Closes: #577126.
+  * 02_maintainer_mode.patch: set AM_MAINTAINER_MODE.
+  * 90_autotools.patch: run the autotools on top of that.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 10 Apr 2010 00:36:54 +0200
+
+gnome-python-desktop (2.28.0-6) unstable; urgency=low
+
+  * debian/*.install:
+    - s/site-packages/*-packages/ for the Python 2.6 transition.
+      Thanks to Jakub Wilk. Closes: #568240.
+  * debian/control.in:
+    - Standards-Version is 3.8.4, no changes needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 03 Feb 2010 15:24:53 +0100
+
+gnome-python-desktop (2.28.0-5) unstable; urgency=low
+
+  * debian/control.in:
+    - Make python-gnome2-desktop-dev arch:any, otherwise the [!hurd-any]
+      dependencies will have no effect unless we build the package on Hurd
+      (and then the dependencies would be buggy elsewhere). See #560071.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 08 Dec 2009 19:16:02 +0100
+
+gnome-python-desktop (2.28.0-4) unstable; urgency=low
+
+  * debian/control.in:
+    - Don't build python-mediaprofiles on Hurd, and don't build depend
+      on libgnome-media-dev on Hurd either.
+    - Same for python-brasero and libbrasero-media-dev.
+    - Let python-gnome2-desktop-dev depend on python-brasero (except on Hurd).
+  * debian/rules:
+    - Don't call 'dh_install' in the install target, call 'dh_install -s' and
+      'dh_install -i' in the binary-arch and binary-indep targets respectively
+      so that dh_install is not called for packages that shouldn't be built
+      on the current architecture.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 07 Dec 2009 02:29:05 +0100
+
+gnome-python-desktop (2.28.0-3) unstable; urgency=low
+
+  * debian/control.in,
+    debian/python-nautilusburn.{examples,install}:
+    - Remove the nautilusburn module, it's deprecated in favour of
+      python-brasero.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 04 Dec 2009 17:47:06 +0100
+
+gnome-python-desktop (2.28.0-2) unstable; urgency=low
+
+  * python-gnomeprint needs python-gnome2. Closes: #548741.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 21 Nov 2009 10:35:25 +0100
+
+gnome-python-desktop (2.28.0-1) unstable; urgency=low
+
+  * New upstream release.
+    - Add missing constants to the brasero bindings. Closes: #546925.
+    - Add a workaround for a crash in an example file. Closes: #546668.
+  * debian/patches/01_fix_build_out_of_tree.patch:
+    - Removed, applied upstream.
+  * debian/watch: Don't uupdate.
+  * debian/rules: Remove check-dist.mk to upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 24 Sep 2009 16:54:39 +0200
+
+gnome-python-desktop (2.27.3-1) experimental; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * Remove python-gtksourceview package, it's not used by anything anymore.
+  * Standards-Version is 3.8.3, no changes needed.
+  * debian/control.in: Remove trailing whitespaces.
+
+  [ Josselin Mouette ]
+  * Remove python-gnome2-desktop since otherwise we would break all 
+    packages depending on it for the gtksourceview module.
+
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release.
+    - debian/patches/01_fix_build_out_of_tree.patch:
+      + Fix build of brasero bindings out of tree.
+  * Add a python-brasero package with the brasero python extensions.
+  * debian/patches/90_relibtoolize.patch:
+    - Deleted, the rpath issue should be fixed now that upstream uses
+      a newer libtool.
+  * Include check-dist.mk to prevent accidental uploads to unstable.
+  * debian/copyright: updated.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 13 Sep 2009 19:27:46 +0200
+
+gnome-python-desktop (2.26.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + Explicitly checks for libgnomeui. Closes: #532545.
+  * Update build-dependencies accordingly.
+  * Add libevince-dev to build dependencies.
+  * New package: python-evince.
+  * 90_relibtoolize.patch: updated.
+  * copyright: 
+    + Mention that the evince bindings are licensed under the LGPL 
+      (after confirming with the author).
+    + Update LGPL to version 2.1 as upstream did.
+    + Point to versioned GPL and LGPL common-licenses.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 10 Jun 2009 23:09:26 +0200
+
+gnome-python-desktop (2.24.1-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * 90_relibtoolize.patch: updated for the new version.
+
+ -- Josselin Mouette <joss@debian.org>  Sun, 08 Mar 2009 15:45:58 +0100
+
+gnome-python-desktop (2.24.0-2) experimental; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * List the provided Python modules in the long description.
+    Closes: #506866.
+
+  [ Josselin Mouette ]
+  * Drop most Replaces/Conflicts, they are obsolete now.
+  * Split each module in its own package.
+    Closes: #494963, #400651, #507159.
+  * Move the examples and documentation to each package.
+  * Remove python-gnome2-desktop-doc entirely.
+  * 90_relibtoolize.patch: relibtoolize the package to avoid the rpath 
+    issue on amd64.
+  * Use quilt to apply the patch; build-depend on quilt.
+  * Also call dh_pysupport for the arch-indep packages.
+  * Remove the Python-Depends: since there are no ${python:Provides} 
+    added, so they just add unneeded complexity.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 24 Feb 2009 10:15:28 +0100
+
+gnome-python-desktop (2.24.0-1) experimental; urgency=low
+
+  * New upstream release.
+    + find_network_password_sync correctly return results.
+      Closes: #463644.
+  * Standards version is 3.8.0.
+  * Require python 2.5 to match the pygobject requirement.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 13 Nov 2008 12:02:52 +0100
+
+gnome-python-desktop (2.22.0-2) unstable; urgency=low
+
+  * Wrap deps and build-deps.
+  * Cleanup rules.
+  * Depend on librsvg2-common for SVG support; strictly speaking, this could
+    be a recommends as the package provides other functionality, but I
+    wouldn't want other packages needing rsvg support to have to depend on
+    librsvg2-common explicitely; closes: #360101.
+  * Don't build-dep on bug-buddy for !hurd-i386; libgtop and hence bug-buddy
+    aren't ported to hurd yet; thanks Michael Banck; closes: #489736.
+
+ -- Loic Minier <lool@dooz.org>  Mon, 12 May 2008 11:47:15 +0200
+
+gnome-python-desktop (2.22.0-1) unstable; urgency=low
+
+  * New upstream release
+    - Handle 'GNOME_KEYRING_RESULT_NO_MATCH'. (Closes: #463494)
+  * debian/control: Merge with Ubuntu:
+    - Build-depend on libecal-dev and libebook-dev to build the new
+      Evolution bindings.
+    - Ported to new metacity-dev API; bump up libmetacity-dev build-dep to >=
+      1:2.21.5 (Closes: #471625, #473142)
+  * debian/control: Standards-Version 3.7.3
+
+ -- Julian Andres Klode <jak@jak-linux.org>  Sat, 29 Mar 2008 20:37:52 +0100
+
+gnome-python-desktop (2.20.0-1) unstable; urgency=low
+
+  * New upstream release
+  - updated version requirements for various libs, including wnck
+    (Closes: #444268)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 27 Sep 2007 20:40:57 -0300
+
+gnome-python-desktop (2.18.0-2) unstable; urgency=low
+
+  [ Loic Minier ]
+  * Don't pass --host to configure when DEB_BUILD_GNU_TYPE equals
+    DEB_HOST_GNU_TYPE.
+  * Honor CFLAGS we set in rules, doh!
+  * Set some sane default CFLAGS and honor noopt in DEB_BUILD_OPTIONS.
+
+  [ Sebastian Dröge ]
+  * Upload to unstable, drop check-dist include.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 25 Apr 2007 16:33:56 +0200
+
+gnome-python-desktop (2.18.0-1) experimental; urgency=low
+
+  [ Loic Minier ]
+  * Add a postinst snippet on suggest of Sebastian Dröge, similar to the one
+    in python-dbus, because we're switching from pycentral to pysupport and
+    this might leave file behind.
+  * Add a get-orig-source target to retrieve the upstream tarball.
+  * Include the new check-dist Makefile to prevent accidental uploads to
+    unstable; bump build-dep on gnome-pkg-tools to >= 0.10.
+  * Cleanup rules.
+
+  [ Marc 'HE' Brockschmidt ]
+  * New upstream release:
+    + debian/control.in: Update, reorder and clean build-deps
+    + debian/rules: Enable build of metacity bindings
+
+  [ Loic Minier ]
+  * Drop postinst snippet which seems to be useless nowadays.
+
+  [ Josselin Mouette ]
+  * Massive cleanup in the build rules.
+  * Switch to python-support.
+  * Move python-gtk2 depencency to the Python-Depends field.
+  * Build-depend on python-support 0.6.
+  * Remove dh_python and debian/pycompat.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 28 Mar 2007 22:13:20 +0200
+
+gnome-python-desktop (2.16.0-1) experimental; urgency=low
+
+  * New upstream releases.
+    - Bump build-deps to: libwnck-dev >= 2.15.5, libnautilus-burn-dev >=
+      2.15.3, libmetacity-dev >= 2.15.5.
+    - Add build-deps on: librsvg2-dev (>= 2.13.93), libgnome-keyring-dev (>=
+      0.5.0), libgnome-desktop-dev (>= 2.10.0).
+  * Drop useless nostrip handling via INSTALL_PROGRAM.
+  * Cleanups; make lintian happy.
+  * Fix various aspects of the build.
+  * Build-depend on libgnome-media-dev instead of gnome-media.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 27 Sep 2006 21:46:08 +0200
+
+gnome-python-desktop (2.14.0-3) unstable; urgency=low
+
+  * Add debian/control to the pyversions -r call since it's mandatory, even if
+    the man page claims it's optional.
+
+ -- Loic Minier <lool@dooz.org>  Sat,  5 Aug 2006 20:49:20 +0200
+
+gnome-python-desktop (2.14.0-2) unstable; urgency=low
+
+  * Drop the version from the conflict/replace with python2.4-gnome2-desktop.
+  * Replace python2.4-gnome2-extras (<< 2.13.3).
+  * Conflict/Replace with python2.3-gnome2-extras (<< 2.13.3) too as we now
+    provide 2.3 bindings.
+  * Conflict/Replace with python-gnome2-extras (<< 2.13.3) which existed
+    during one day in unstable thanks to an aggressive NMU.
+  * Make package binNMU-safe.
+    - Build-depend on dpkg-dev (>= 1.13.19).
+    - Let python-gnome2-desktop-dev depend on python-gnome2-desktop
+      (>= ${source:Version}).
+
+ -- Loic Minier <lool@dooz.org>  Tue,  4 Jul 2006 16:46:38 +0200
+
+gnome-python-desktop (2.14.0-1) unstable; urgency=low
+
+  * Set myself as Maintainer.
+  * Bump up Debhelper compatibility level to 5.
+  * Add ${misc:Depends}.
+  * Rephrase package descriptions and drop Author and Homepage from
+    descriptions.
+  * Bump up Standards-Version to 3.7.2.
+  * Update upstream URL.
+  * Update authors' list from AUTHORS.
+  * Ship full copyright information.
+  * Bump up libpanel-applet2-dev to >= 2.13.4.
+  * Add a libgnomeprint2.2-dev (>= 2.2.0) build-dep.
+  * Add watch file.
+  * Convert to new Python policy.
+    - Add ${python:Provides} to python-gnome2-desktop.
+    - Merge python-gnome2-desktop and python2.4-gnome2-desktop: merge the
+      dependencies, and add a Conflicts/Replaces for the merge itself.
+    - Update dependencies on other Python packages.
+    - Set python-gnome2-desktop to Arch: any.
+    - Bump up Debhelper build-dep to >= 5.0.37.2.
+    - Set Python compatibility level to 2.
+    - Add XB-Python-Version.
+    - Add a python-all-dev (>= 2.3.5-11) build-dep.
+    - Rewrite rules completely, in particular drop patch support and support
+      pyversions.
+    - Add a python-central (>= 0.4.17) build-dep.
+    - Add a XS-Python-Version (>= 2.3).
+  * Build-depend on autotools-dev and copy config.guess and .sub only when
+    present (i.e. from a source tree).
+  * Build-depend on Python for dh_python.
+  * Initial upload to Debian. (Closes: #370336)
+
+ -- Loic Minier <lool@dooz.org>  Mon,  3 Jul 2006 10:26:49 +0200
+
+gnome-python-desktop (2.14.0-0ubuntu2) dapper; urgency=low
+
+  * debian/control.in:
+    - removed superfluous Depends: from python-gnome2-desktop-dev.
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Thu,  6 Apr 2006 16:19:59 +0200
+
+gnome-python-desktop (2.14.0-0ubuntu1) dapper; urgency=low
+
+  * New upstream release:
+    - LIBGNOMEPRINTUI shouldn't build without gnome-python.
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Mon, 13 Mar 2006 00:22:12 +0100
+
+gnome-python-desktop (2.13.3-0ubuntu1) dapper; urgency=low
+
+  * Initial release.
+  * Packaging based on gnome-python-extras - thanks to everybody for shaping
+    the package it is today.
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Mon, 23 Jan 2006 12:01:08 +0100
